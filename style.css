@@ -1,0 +1,466 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+  color: #0d0f0d;
+  padding: 2rem;
+  overscroll-behavior: none;
+  
+}
+
+/* Main container layout */
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Left profile */
+.left {
+  flex: 1 1 300px;
+  max-width: 400px;
+  position: sticky;
+  top: 10rem;
+  left: 8rem;
+}
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.name {
+  font-size: 2rem;
+  margin: 1rem 0 0.5rem;
+  font-weight: 700;
+}
+.bio {
+  color: #5e8d6e;
+  line-height: 1.6;
+}
+
+/* Right socials */
+/* Make right column its own scroll container */
+.right {
+  flex: 1 1 500px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 0.25rem; /* a bit of space for scrollbar */
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+
+
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
+  gap: 1rem;
+  justify-content: center;
+  padding-top: 2rem;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 150px;
+}
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.Mylogo{
+  width: 100%;
+  height: 100%px;;
+  }
+  .logo-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  position: relative;
+  
+}
+.logo-card h3,
+.logo-card p,
+.logo-card button {
+  margin-top: 1.5rem;   /* push down to avoid overlap with logo */
+  text-align: center;
+  
+}
+.Logo{
+   width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border: 2px solid #d1d5db;
+  border-radius: 5px;
+  
+  position: absolute;   /* detach from flow */
+  top: 10px;            /* distance from top of card */
+  left: 10px;           /* distance from left */
+  margin: 0;
+}
+
+
+.card button {
+  height: 30px;
+  width: 90px;
+  margin-top: 1rem;
+ 
+  border: none;
+  border-radius: 6px;
+  background: #3b82f6;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Shorts section */
+.shorts {
+  margin-top: 3rem;
+  opacity: 0.8;
+  transform: scale(0.9);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  margin-bottom: 1rem;
+}
+
+
+.shorts h2 {
+  position: relative;
+  font-size:1.5rem ;
+  margin-bottom: 1rem;
+  
+}
+.heading{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.heading::before{
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgb(85, 252, 7);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  z-index: -1;
+
+}
+.heading:hover::before{
+  transform: scaleX(2);
+  
+}
+.shorts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 140px));
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  
+}
+.short-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(0.9);
+  opacity: 0.8;
+}
+
+/* Scroll container */
+.right {
+  scroll-snap-type: y mandatory;
+  scroll-padding: 8vh 0;
+  overflow-y: scroll;
+}
+
+
+.shorts {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  margin: 1rem 0;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0.3;
+  transform: scale(0.9);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 200px;
+}
+
+
+
+/* Hover effect for better interaction */
+.shorts:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+
+
+/* Enhanced visual hierarchy */
+.shorts h2 {
+  opacity: .7;
+  transition: opacity 0.5s ease;
+}
+
+.shorts:target h2,
+.shorts:focus-within h2 {
+  opacity: 1;
+}
+
+
+
+
+
+
+.shorts:target .short-card,
+.shorts:focus-within .short-card {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Smooth scrolling for better snap experience */
+html {
+  scroll-behavior: smooth;
+}
+.short-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.short-card video {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;  /* crop nicely */
+  border-radius: 16px;
+  pointer-events: none;
+  transform: translateY(var(--parallax, 0));
+  transition: transform 0.2s ease-out;
+}
+.right h2{
+    text-align: center;
+}
+/* Footer */
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: #777;
+}
+
+/* Introduction Section */
+.Introduction {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 2rem 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  
+}
+.Introduction h1{
+  text-align: center;
+  color: gray;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 1rem;
+  
+}
+.Introduction::after {
+  content: '';
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: calc(100% - 3rem);
+  background: #22c55e;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+  z-index: 10;
+}
+
+.css-left, .css-right {
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.css-left {
+  text-align: right;
+}
+
+.css-right {
+  text-align: left;
+}
+
+/* Image containers */
+.image-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 2rem;
+  margin-left: 20rem;
+}
+
+.main-img {
+    width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 1;
+
+}
+.head-img{
+  width: 80px;
+  height: 80px;
+  border-radius: 30px;
+  position: absolute;
+  left: 90%;    /* Center horizontally */
+  top: 10%;     /* Move down to mouth area */
+  transform: translate(-50%, -60%); /* Fine-tune position */
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Text content */
+.text-content {
+  padding: 2rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.text-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .Introduction {
+    grid-template-columns: 1fr;
+  }
+  
+  .css-left, .css-right {
+    text-align: center;
+  }
+  
+  .Introduction::after {
+    display: none;
+    top: 4rem;
+  }
+}
+.animation-text{
+  font-size: 34px;
+  margin-top: 100px;
+  font-weight: 600;
+  min-width: 280px;
+  
+  font-family: cursive;
+      
+  margin-left: 40rem;
+  
+
+}
+.animation-text span{
+  position :relative;
+}
+.animation-text span::before{
+  content: "GymFreak";
+  color: orangered;
+animation: words 20s infinite;
+
+}
+.animation-text span::after{
+ content: "";
+ position: absolute;
+ width: calc(100% + 8px);
+ height: 100%;
+ background-color: rgb(255, 255, 255);
+ border-left: 2px solid rgb(202, 31, 31) ;
+ right: -8px;
+ animation: cursor 0.8s infinite, typing 20s steps(14) infinite;
+}
+@keyframes cursor {
+  to{
+    border-left:2px solid #f8f8f8;
+  }
+  
+}
+@keyframes words {
+  0%,20%{
+    content: "GymFreak";
+  }
+  21%,40%{
+    content: "Gamer";
+  }
+  41%,60%{
+    content: "Editor";
+  }
+  61%,80%{
+    content: "Designer";
+  }
+  81%,100%{
+    content: "Developer";
+  }
+  
+}
+@keyframes typing {
+  10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+    width: 0;
+  }
+  5%,20%,25%,40%,45%,60%,65%,80%,85%{
+    width: calc(100% + 8px);
+  }
+}
