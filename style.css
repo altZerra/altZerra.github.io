@@ -21,18 +21,18 @@ body {
 .container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+ 
   gap: 2rem;
-  align-items: flex-start;
+  align-items: center;
 }
 
 /* Left profile */
 .left {
-  flex: 1 1 300px;
-  max-width: 400px;
+  flex: 1 1 100px;
+  max-width: 500px;
   position: sticky;
-  top: 10rem;
-  left: 8rem;
+  top: 1rem;
+  left: 5rem;
 }
 .profile-img {
   width: 150px;
@@ -70,6 +70,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
   gap: 1rem;
   justify-content: center;
+  justify-items: center;
   padding-top: 2rem;
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -151,39 +152,41 @@ body {
   margin-bottom: 1rem;
   
 }
-.heading{
+/* ...existing code... */
+
+.heading {
   position: relative;
   display: inline-block;
   text-align: center;
   left: 50%;
   transform: translateX(-50%);
+  transition: background 0.3s, color 0.3s;
 }
-.heading::before{
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  background-color: rgb(85, 252, 7);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  z-index: -1;
 
+/* Show gradient on text when hovered */
+.heading:hover {
+  background: linear-gradient(45deg, #0ca1f7, #ff7300, #c297f3, #f716b3,#130ff3,#fd0bc9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
-.heading:hover::before{
-  transform: scaleX(2);
-  
+
+/* Remove or adjust ::before if you only want gradient on text */
+.heading::before {
+  content: '';
+  display: none; /* Hide the pseudo-element */
 }
+
 .shorts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 140px));
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
   gap: 1rem;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
+  justify-content: center;
+  justify-items: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 150px;
   
 }
 .short-card {
@@ -199,17 +202,10 @@ body {
 }
 
 /* Scroll container */
-.right {
-  scroll-snap-type: y mandatory;
-  scroll-padding: 8vh 0;
-  overflow-y: scroll;
-}
+
 
 
 .shorts {
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-  margin: 1rem 0;
   transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   opacity: 0.3;
   transform: scale(0.9);
@@ -387,20 +383,9 @@ footer {
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
-  .Introduction {
-    grid-template-columns: 1fr;
-  }
+
   
-  .css-left, .css-right {
-    text-align: center;
-  }
-  
-  .Introduction::after {
-    display: none;
-    top: 4rem;
-  }
-}
+ 
 .animation-text{
   font-size: 34px;
   margin-top: 100px;
@@ -466,69 +451,29 @@ animation: words 20s infinite;
 }
 /* ...existing code... */
 
-/* Responsive adjustments for container and columns */
-@media (max-width: 1200px) {
-  .container {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.5rem;
-  }
-  .left, .right {
-    max-width: 100%;
-    position: static;
-    top: auto;
-    left: auto;
-    width: 100%;
-  }
-  .image-container {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .animation-text {
-    margin-left: 0;
-    text-align: center;
-  }
-}
+
 
 /* Further adjustments for tablets and small screens */
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .left, .right {
-    width: 100%;
-    max-width: 100%;
-    position: static;
-    top: auto;
-    left: auto;
-  }
-  .image-container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 180px;
-    height: 180px;
-  }
-  .main-img {
-    width: 180px;
-    height: 180px;
-  }
-  .animation-text {
-    font-size: 28px;
-    margin-left: 0;
-    text-align: center;
-  }
-}
 
+  .autoRotate{
+    animation: AutoRotateAnimation;
+     animation-timeline: view();
+  }
+  @keyframes AutoRotateAnimation {
+    from{
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg);
+    }
+    
+  }
 /* Mobile adjustments */
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   body {
     padding: 1rem;
   }
-  .container {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+  
   .left, .right {
     width: 100%;
     max-width: 100%;
@@ -563,6 +508,7 @@ animation: words 20s infinite;
     left: 80%;
     top: 10%;
   }
+
   .animation-text {
     font-size: 20px;
     margin-left: 0;
@@ -570,11 +516,11 @@ animation: words 20s infinite;
     min-width: 120px;
   }
   .shorts-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
   .short-card img,
   .short-card video {
-    height: 120px;
+    height: 340px;
   }
   .Introduction {
     padding: 1rem 0;
@@ -584,5 +530,3 @@ animation: words 20s infinite;
     padding: 1rem;
   }
 }
-
-/* ...existing code... */
