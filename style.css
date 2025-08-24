@@ -1,69 +1,92 @@
-/* Reset */
+/* ===========================
+   RESET + BASE
+=========================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  font-family: "Poppins", sans-serif;
-  background: #fff;
-  color: #0d0f0d;
-  padding: 2rem;
-  overscroll-behavior: none;
-  
+:root {
+  --primary: #3b82f6;
+  --accent: #22c55e;
+  --highlight: orangered;
+  --text-dark: #0d0f0d;
+  --text-light: #555;
+  --bg: #fff;
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Main container layout */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text-dark);
+  padding: 2rem;
+  height: 100vh;
+  overscroll-behavior: none;
+}
+
+/* ===========================
+   LAYOUT
+=========================== */
 .container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
-  align-items: center;
+  align-items: flex-start;
 }
 
-/* Left profile */
+/* ===========================
+   LEFT PROFILE
+=========================== */
 .left {
-  flex: 1 1 100px;
+flex: 1 1 100px;
   max-width: 500px;
   position: sticky;
-  top: 1rem;
-  left: 5rem;
+  top: 20vh;   /* 👈 will keep it around 20% from the top, i.e. mid screen */
+  align-self: flex-start; /* ensure it doesn't get pulled down */
 }
+
 .profile-img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
 }
+
 .name {
   font-size: 2rem;
   margin: 1rem 0 0.5rem;
   font-weight: 700;
 }
+
 .bio {
   color: #5e8d6e;
   line-height: 1.6;
 }
 
-/* Right socials */
-/* Make right column its own scroll container */
+/* ===========================
+   RIGHT SOCIALS
+=========================== */
 .right {
   flex: 1 1 500px;
+  width: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding-right: 0.25rem; /* a bit of space for scrollbar */
-  width: 100%;
+  padding-right: 0.25rem;
   padding-bottom: 1rem;
 }
 
-
-
+.right h2 {
+  text-align: center;
+}
 
 .social-grid {
   display: grid;
@@ -73,87 +96,141 @@ body {
   justify-items: center;
   padding-top: 2rem;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
   min-height: 150px;
 }
-.card {
-  background: #fff;
+
+/* ===========================
+   CARDS
+=========================== */
+.card,
+.short-card {
   border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-sm);
+  background: var(--bg);
+  transition: all 0.3s ease;
+}
+
+.card {
   padding: 1rem;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
   text-decoration: none;
   color: inherit;
 }
+
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-md);
 }
-.Mylogo{
+
+.card button {
+  height: 30px;
+  width: 90px;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Logo Cards */
+.Mylogo {
   width: 100%;
-  height: 100%px;;
-  }
-  .logo-card{
+  height: 100%;
+}
+.logo-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 2rem;
   position: relative;
-  
 }
 .logo-card h3,
 .logo-card p,
 .logo-card button {
-  margin-top: 1.5rem;   /* push down to avoid overlap with logo */
+  margin-top: 1.5rem;
   text-align: center;
-  
 }
-.Logo{
-   width: 40px;
+.Logo {
+  width: 40px;
   height: 40px;
   object-fit: contain;
   border: 2px solid #d1d5db;
   border-radius: 5px;
-  
-  position: absolute;   /* detach from flow */
-  top: 10px;            /* distance from top of card */
-  left: 10px;           /* distance from left */
-  margin: 0;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
-
-.card button {
-  height: 30px;
-  width: 90px;
-  margin-top: 1rem;
- 
-  border: none;
-  border-radius: 6px;
-  background: #3b82f6;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Shorts section */
+/* ===========================
+   SHORTS SECTION
+=========================== */
 .shorts {
-  margin-top: 3rem;
+  margin: 3rem 0 1rem;
   opacity: 0.8;
   transform: scale(0.9);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  margin-bottom: 1rem;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 200px;
 }
 
+.shorts:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
 
 .shorts h2 {
   position: relative;
-  font-size:1.5rem ;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
+  text-align: center;
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+}
+
+.shorts:focus-within h2,
+.shorts:target h2 {
+  opacity: 1;
+}
+
+.shorts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
+  gap: 1rem;
+  justify-content: center;
+  justify-items: center;
+  min-height: 150px;
+}
+
+.short-card {
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(0.9);
+  opacity: 0.8;
+}
+
+.short-card img,
+.short-card video {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 16px;
   
 }
-/* ...existing code... */
 
+.short-card video {
+  pointer-events: none;
+  transform: translateY(var(--parallax, 0));
+  transition: transform 0.2s ease-out;
+}
+
+/* ===========================
+   HEADING (GRADIENT EFFECT)
+=========================== */
 .heading {
   position: relative;
   display: inline-block;
@@ -163,156 +240,52 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-/* Show gradient on text when hovered */
 .heading:hover {
-  background: linear-gradient(45deg, #0ca1f7, #ff7300, #c297f3, #f716b3,#130ff3,#fd0bc9);
+  background: linear-gradient(45deg, #0ca1f7, #ff7300, #c297f3, #f716b3, #130ff3, #fd0bc9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
   color: transparent;
-}
-
-/* Remove or adjust ::before if you only want gradient on text */
-.heading::before {
-  content: '';
-  display: none; /* Hide the pseudo-element */
-}
-
-.shorts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
-  gap: 1rem;
-  justify-content: center;
-  justify-items: center;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  min-height: 150px;
   
 }
-.short-card {
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform: scale(0.9);
-  opacity: 0.8;
-}
 
-/* Scroll container */
-
-
-
-.shorts {
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  opacity: 0.3;
-  transform: scale(0.9);
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  min-height: 200px;
-}
-
-
-
-/* Hover effect for better interaction */
-.shorts:hover {
-  opacity: 1;
-  transform: scale(1.02);
-}
-
-
-
-/* Enhanced visual hierarchy */
-.shorts h2 {
-  opacity: .7;
-  transition: opacity 0.5s ease;
-}
-
-.shorts:target h2,
-.shorts:focus-within h2 {
-  opacity: 1;
-}
-
-
-
-
-
-
-.shorts:target .short-card,
-.shorts:focus-within .short-card {
-  transform: scale(1.02);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-/* Smooth scrolling for better snap experience */
-html {
-  scroll-behavior: smooth;
-}
-.short-card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-.short-card video {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;  /* crop nicely */
-  border-radius: 16px;
-  pointer-events: none;
-  transform: translateY(var(--parallax, 0));
-  transition: transform 0.2s ease-out;
-}
-.right h2{
-    text-align: center;
-}
-/* Footer */
-footer {
-  margin-top: 2rem;
-  text-align: center;
-  color: #777;
-}
-
-/* Introduction Section */
+/* ===========================
+   INTRODUCTION SECTION
+=========================== */
 .Introduction {
   width: 100%;
   margin-top: 2rem;
   padding: 2rem 0;
-  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
   min-height: 100vh;
+  position: relative;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
-  
 }
-.Introduction h1{
+
+.Introduction h1 {
   text-align: center;
   color: gray;
-  font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 1rem;
-  
 }
+
 .Introduction::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 3rem;
   left: 50%;
   transform: translateX(-50%);
   width: 4px;
   height: calc(100% - 3rem);
-  background: #22c55e;
+  background: var(--accent);
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
   z-index: 10;
 }
 
-.css-left, .css-right {
+.css-left,
+.css-right {
   padding: 2rem;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -331,39 +304,38 @@ footer {
   position: relative;
   width: 250px;
   height: 250px;
-  margin-bottom: 2rem;
-  margin-left: 20rem;
+  margin: 0 auto 2rem;
 }
 
 .main-img {
-    width: 250px;
-  height: 250px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-md);
   position: relative;
   z-index: 1;
-
 }
-.head-img{
+
+.head-img {
   width: 80px;
   height: 80px;
   border-radius: 30px;
   position: absolute;
-  left: 90%;    /* Center horizontally */
-  top: 10%;     /* Move down to mouth area */
-  transform: translate(-50%, -60%); /* Fine-tune position */
+  left: 90%;
+  top: 10%;
+  transform: translate(-50%, -60%);
   z-index: 2;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Text content */
 .text-content {
   padding: 2rem;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   min-height: 200px;
   display: flex;
   flex-direction: column;
@@ -379,108 +351,120 @@ footer {
 .text-content p {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #555;
+  color: var(--text-light);
 }
 
-/* Responsive design */
-
-  
- 
-.animation-text{
+/* ===========================
+   ANIMATION TEXT
+=========================== */
+.animation-text {
   font-size: 34px;
-  margin-top: 100px;
+  margin: 100px auto 0;
   font-weight: 600;
   min-width: 280px;
-  
   font-family: cursive;
-      
-  margin-left: 40rem;
-  
+  text-align: center;
+}
 
+.animation-text span {
+  position: relative;
 }
-.animation-text span{
-  position :relative;
-}
-.animation-text span::before{
+
+.animation-text span::before {
   content: "GymFreak";
-  color: orangered;
-animation: words 20s infinite;
+  color: var(--highlight);
+  animation: words 20s infinite;
+}
 
+.animation-text span::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  background-color: var(--bg);
+  border-left: 2px solid rgb(202, 31, 31);
+  right: -8px;
+  animation: cursor 0.8s infinite, typing 20s steps(14) infinite;
 }
-.animation-text span::after{
- content: "";
- position: absolute;
- width: calc(100% + 8px);
- height: 100%;
- background-color: rgb(255, 255, 255);
- border-left: 2px solid rgb(202, 31, 31) ;
- right: -8px;
- animation: cursor 0.8s infinite, typing 20s steps(14) infinite;
-}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
 @keyframes cursor {
-  to{
-    border-left:2px solid #f8f8f8;
+  to {
+    border-left: 2px solid transparent;
   }
-  
 }
+
 @keyframes words {
-  0%,20%{
-    content: "GymFreak";
-  }
-  21%,40%{
-    content: "Gamer";
-  }
-  41%,60%{
-    content: "Editor";
-  }
-  61%,80%{
-    content: "Designer";
-  }
-  81%,100%{
-    content: "Developer";
-  }
-  
+  0%, 20% { content: "GymFreak"; }
+  21%, 40% { content: "Gamer"; }
+  41%, 60% { content: "Editor"; }
+  61%, 80% { content: "Designer"; }
+  81%, 100% { content: "Developer"; }
 }
+
 @keyframes typing {
-  10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
-    width: 0;
-  }
-  5%,20%,25%,40%,45%,60%,65%,80%,85%{
-    width: calc(100% + 8px);
-  }
+  10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% { width: 0; }
+  5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% { width: calc(100% + 8px); }
 }
-/* ...existing code... */
 
+.autoRotate {
+  animation: AutoRotateAnimation 6s linear infinite;
+}
 
+@keyframes AutoRotateAnimation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
-/* Further adjustments for tablets and small screens */
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: #777;
+}
 
-  .autoRotate{
-    animation: AutoRotateAnimation;
-     animation-timeline: view();
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
   }
-  @keyframes AutoRotateAnimation {
-    from{
-      transform: rotate(0deg);
-    }
-    to{
-      transform: rotate(360deg);
-    }
-    
-  }
-/* Mobile adjustments */
-@media (max-width: 500px) {
-  body {
-    padding: 1rem;
-  }
-  
-  .left, .right {
-    width: 100%;
+  .left,
+  .right {
     max-width: 100%;
     position: static;
-    top: auto;
-    left: auto;
-    padding: 0;
+    width: 100%;
+  }
+  .animation-text {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .image-container {
+    width: 180px;
+    height: 180px;
+  }
+  .main-img {
+    width: 180px;
+    height: 180px;
+  }
+  .animation-text {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
   }
   .profile-img {
     width: 100px;
@@ -495,8 +479,6 @@ animation: words 20s infinite;
   .image-container {
     width: 120px;
     height: 120px;
-    margin-left: auto;
-    margin-right: auto;
   }
   .main-img {
     width: 120px;
@@ -508,25 +490,23 @@ animation: words 20s infinite;
     left: 80%;
     top: 10%;
   }
-
   .animation-text {
     font-size: 20px;
-    margin-left: 0;
-    text-align: center;
     min-width: 120px;
   }
   .shorts-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
   .short-card img,
   .short-card video {
-    height: 340px;
+    height: 250px;
   }
   .Introduction {
     padding: 1rem 0;
     min-height: auto;
   }
-  .css-left, .css-right {
+  .css-left,
+  .css-right {
     padding: 1rem;
   }
 }
