@@ -148,7 +148,7 @@ flex: 1 1 100px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 2rem;
+  padding: 3rem;
   position: relative;
 }
 .logo-card h3,
@@ -158,14 +158,13 @@ flex: 1 1 100px;
   text-align: center;
 }
 .Logo {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 30px;
   object-fit: contain;
   border: 2px solid #d1d5db;
-  border-radius: 5px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  border-radius: 8px;
+  margin-bottom: 1rem; /* space below logo */
+  position: static; /* remove absolute */
 }
 
 /* ===========================
@@ -328,15 +327,28 @@ flex: 1 1 100px;
 }
 
 .head-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 30px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50px;
   position: absolute;
-  left: 90%;
-  top: 10%;
+  left: 70%;
+  top: -10%;
   transform: translate(-50%, -60%);
   z-index: 2;
   box-shadow: var(--shadow-sm);
+}
+.right-head-img{
+  width: 140px;
+  height: 140px;
+  border-radius: 50px;
+  position: absolute;
+  left: -15%;
+  top:-30%;
+  transform: translate(-50%, -60%);
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+
+
 }
 
 /* Text content */
@@ -355,7 +367,7 @@ flex: 1 1 100px;
 .text-content h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: #111;
+  color: #8e0ce6;
 }
 
 .text-content p {
@@ -420,12 +432,20 @@ flex: 1 1 100px;
 }
 
 .autoRotate {
-  animation: AutoRotateAnimation 6s linear infinite;
+  animation: AutoRotateAnimation 8s linear infinite;
 }
 
 @keyframes AutoRotateAnimation {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.autoRotateAnti {
+  animation: AutoRotateAnimation1 8s linear infinite;
+}
+
+@keyframes AutoRotateAnimation1 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
 
 /* ===========================
@@ -495,10 +515,17 @@ footer {
     height: 120px;
   }
   .head-img {
-    width: 40px;
-    height: 40px;
-    left: 80%;
-    top: 10%;
+    width: 70px;
+    height: 70px;
+    left: 70%;
+    top: -30%;
+  }
+  .right-head-img{
+    width: 70px;
+    height: 70px;
+    left: -20%;
+    top: -30%;
+
   }
   .animation-text {
     font-size: 20px;
