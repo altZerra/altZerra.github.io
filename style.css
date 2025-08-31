@@ -129,6 +129,8 @@ html, body {
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
+   filter: drop-shadow(0 0 9rem rgb(155, 27, 240));
+            backdrop-filter: blur(15px) saturate(3);
 }
 
 .name {
@@ -201,19 +203,39 @@ margin-top: -8rem;
 }
 .column1,.column2{
   background-color: #ffffff;
-  width: 100%;
-  height: 100%;
+  /* Remove width and height */
   border: 1px solid #9c9292;
   border-radius: 10px;
   padding: 2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.css-grid-image{
+.glow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 200px;     /* Match image size */
+  height: 200px;    /* Match image size */
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(0 0 2rem rgb(155, 27, 240));
+  backdrop-filter: blur(15px) saturate(3);
+
+} 
+.css-grid-image 
+{
   width: 200px;
   height: 200px;
-  margin-left: 6rem;
-  margin-bottom: 1rem;
-  box-shadow: #000000;
-}
+  background-repeat: no-repeat;
+  background-image: url("/assets/editor.png");
+  background-image: url("/assets/ui.png");
+  background-image: url("/assets/3dvecteezy.png");
+  padding: 20px;
+  margin: -20px;
+ }
 .css-grid-head{
   font-size: 2rem;
   color: #6b997b;
@@ -232,22 +254,38 @@ margin-top: -8rem;
   text-align: center;
 }
 /* ===========================
-   RIGHT SOCIALS
+   Last SOCIALS
 =========================== */
 
-.right h2 {
+
+.last{
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+.last h2 {
   text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #8e0ce6;
 }
 
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
   justify-content: center;
   justify-items: center;
   padding-top: 2rem;
-  scroll-snap-align: start;
   min-height: 150px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ===========================
@@ -612,8 +650,8 @@ footer {
     align-items: stretch;
     gap: 1.5rem;
   }
-  .left,
-  .right {
+  .upper,
+  .last {
     max-width: 100%;
     position: static;
     width: 100%;
