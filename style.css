@@ -469,7 +469,7 @@ margin-top: -8rem;
   transform: translateX(-50%);
   width: 4px;
   max-width: 100%;  /* ✅ */
-  height: calc(200% - 3rem);
+  height: calc(100% - 3rem);
   background: var(--accent);
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
