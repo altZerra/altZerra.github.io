@@ -1,192 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" 
+    rel="stylesheet"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+  
+        
 </head>
 <body>
-   <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg" aria-hidden="true"></div>
+
   <div class="container">
-    <!--  upper profile section -->
-      <!-- ...existing code... -->
-<nav class="navbar">
-  <a href="#" class="navbar-logo">
-    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M9 13h6v6h3v-9l-6-4.5L6 10v9h3zm-5 8V9l8-6l8 6v12z"/>
-    </svg>
-  </a>
-  <button class="navbar-button">Say Hello</button>
-  <a href="#" class="navbar-link">
-    <!-- You can put another SVG or icon here if needed -->
-  </a>
-</nav>
-<!-- ...existing code... -->
-    <div class="upper">
-      
-       <h1 class="name">Designer, Frontend Developer & Mentor</h1>
-       <p class="bio">
-       I design and code beautifully simple things, and I love what I do.
+    <!-- Navbar -->
+    <nav class="navbar ">
+      <a href="#" class="navbar-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" viewBox="0 0 24 24">
+          <path 
+            fill="currentColor" 
+            d="M9 13h6v6h3v-9l-6-4.5L6 10v9h3zm-5 8V9l8-6l8 6v12z" 
+          />
+        </svg>
+      </a>
+      <button class="navbar-button">Say Hello</button>
+      <a href="#" class="navbar-link"></a>
+    </nav>
 
-       </p>
-       <img src="assets\portfolio-image.jpeg" alt="Profile" class="profile-img">
-       <img src="assets/sittingontheTable.png" alt="" class="vector-img">
-     
+    <!-- Upper Section -->
+    <div class="upper ">
+      <h1 class="name">Designer, Frontend Developer & Editor</h1>
+      <p class="bio">
+        I design and code beautifully simple things, and I love what I do.
+      </p>
+      <img src="assets/portfolio-image.jpeg" alt="Profile" class="profile-img" />
+      <img src="assets/sittingontheTable.png" alt="" class="vector-img" />
     </div>
- <div class="Background-text">
-  <h1 class="css-hi">Hi, I’m Ayushman. Nice to meet you.</h1>
-  <p class="css-intro">Since beginning my journey as a freelance designer 12 years ago, I've done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. I'm quietly confident, naturally curious, and perpetually working on improving my chops.</p>
 
- </div>
-   <div class="skills-grid">
-    <div class="column1">
+    <!-- Background Text -->
+    <div class="Background-text">
+      <h1 class="css-hi">Hi, I’m Ayushman. Nice to meet you.</h1>
+      <p class="css-intro">
+        Since beginning my journey as a freelance designer 12 years ago, I've done remote work for agencies, 
+        consulted for startups, and collaborated with talented people to create digital products for both business 
+        and consumer use. I'm quietly confident, naturally curious, and perpetually working on improving my chops.
+      </p>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="skills-grid">
+      <!-- Designer -->
+      <div class="column1">
         <div class="glow-container">
-    <img src="assets/ui.png" alt="" class="css-grid-image">
-  </div>
-      <h1 class="css-grid-head">Designer</h1>
-      <p class="css-grid-para">I value simple content structure, clean design patterns, and thoughtful interactions.</p>
-      <p class="css-grid-blue">Things I enjoy designing:</p>
-      <p class="css-grid-para">UX, UI, Web, Apps, Logos</p>
-      <p class="css-grid-blue">   Design-tools: </p>
-      <p class="css-grid-para">        Affinity Designer  </br>
-            Figma          </br>
-           Pen & Paper        </br>
-              Sketch</p>
-    </div>
-    <div class="column2">
-      <div class="glow-container">
-    <img src="assets/3dvecteezy.png" alt="" class="css-grid-image">
-  </div>
-      <h1 class="css-grid-head">Frontend Developer</h1>
-      <p class="css-grid-para">I like to code things from scratch, and enjoy bringing ideas to life in the browser.</p>
-      <p   class="css-grid-blue">Languages I speak:</p>
-        <p class="css-grid-para">HTML, Pug, Slim, CSS, Sass, Git</p>
-      <p class="css-grid-blue">   Dev Tools:</p>
-      <p class="css-grid-para">       Bootstrap
-                                      <br>
-                                      Github
-                                      <br>
-                                      Netlify
-                                      <br>
-                                      Tailwind CSS
-                                      <br>  
-                                      VS Code
+          <img src="assets/ui.png" alt="" class="css-grid-image" />
+        </div>
+        <h1 class="css-grid-head">Designer</h1>
+        <p class="css-grid-para">
+          I value simple content structure, clean design patterns, and thoughtful interactions.
         </p>
+        <p class="css-grid-blue">Things I enjoy designing:</p>
+        <p class="css-grid-para">UX, UI, Web, Apps, Logos</p>
+        <p class="css-grid-blue">Design tools:</p>
+        <p class="css-grid-para">
+          Affinity Designer <br />
+          Figma <br />
+          Pen & Paper <br />
+          Sketch
+        </p>
+      </div>
+
+      <!-- Frontend Developer -->
+      <div class="column2">
+        <div class="glow-container">
+          <img src="assets/3dvecteezy.png" alt="" class="css-grid-image" />
+        </div>
+        <h1 class="css-grid-head">Frontend Developer</h1>
+        <p class="css-grid-para">
+          I like to code things from scratch, and enjoy bringing ideas to life in the browser.
+        </p>
+        <p class="css-grid-blue">Languages I speak:</p>
+        <p class="css-grid-para">HTML, Pug, Slim, CSS, Sass, Git</p>
+        <p class="css-grid-blue">Dev Tools:</p>
+        <p class="css-grid-para">
+          Bootstrap <br />
+          Github <br />
+          Netlify <br />
+          Tailwind CSS <br />
+          VS Code
+        </p>
+      </div>
+
+      <!-- Editor -->
+      <div class="column2">
+        <div class="glow-container">
+          <img src="assets/editor.png" alt="" class="css-grid-image" />
+        </div>
+        <h1 class="css-grid-head">Editor</h1>
+        <p class="css-grid-para">
+          I love to remap time and bring some velocity effect with the beats and transitions.
+        </p>
+        <p class="css-grid-blue">Style I use in my editing:</p>
+        <p class="css-grid-para">Masking-transition, Velocity, motion graphics (learning)</p>
+        <p class="css-grid-blue">Editing tools:</p>
+        <p class="css-grid-para">
+          Adobe After Effects <br />
+          Adobe Premiere Pro <br />
+          Adobe Photoshop <br />
+          DaVinci Resolve
+        </p>
+      </div>
     </div>
-     <div class="column2">
- <div class="glow-container">
-    <img src="assets/editor.png" alt="" class="css-grid-image">
-  </div>      <h1 class="css-grid-head">Editor</h1>
-      <p class="css-grid-para">I love to remap time and bring some velocity effect with the beats and transitions.</p>
-      <p   class="css-grid-blue">Style I use in my editing:</p>
-        <p class="css-grid-para">Masking-transition, Velocity, motion graphics(learning)</p>
-      <p class="css-grid-blue">   Editing-tools: </p>
-      <p class="css-grid-para">   Adobe after-effects  </br>
-          Adobe PremierPro     </br>
-          Adobe PhotoShop        </br>
-              Davinci Resolve</p>
-    </div>
 
-   </div>
-
-
-
-
-
-
-
-   
-   <div class="animation-text">
+    <!-- Animation Text -->
+    <div class="animation-text">
       I am a <span></span>
-   </div>
-  <!-- Introduction Section -->
-  <div class="Introduction">
-   
-    <!-- First Row: Image on left, text on right -->
-    <div class="css-left">
-      
-      <div class="image-container">
-        <img src="assets/dumbbell_8509342.png" alt="" class="head-img autoRotate">
-        <img src="assets/rat.png.jfif" alt="Profile Image" class="main-img">
-      </div>
     </div>
-    <div class="css-right">
-      <div class="text-content">
-        <h3>Building Strength, Building Code</h3>
-        <p>“Just like training in the gym, I approach every project with consistency, focus, and a drive to improve. Growth — whether in fitness or development — is built one rep at a time.”</p>
+
+    <!-- Introduction Section -->
+    <div class="Introduction">
+      <!-- First Row: Image left, text right -->
+      <div class="css-left">
+        <div class="image-container">
+          <img src="assets/dumbbell_8509342.png" alt="" class="head-img autoRotate" />
+          <img src="assets/rat.png.jfif" alt="Profile Image" class="main-img" />
+        </div>
       </div>
-    </div>
-    
-    <!-- Second Row: Text on left, image on right -->
-    <div class="css-left">
-      <div class="text-content">
-        <h3>An Editor / Synced To The Beat</h3>
-        <p>“Velocity isn’t just a trick — it’s storytelling through timing, pacing, and perfect transitions.”</p>
+      <div class="css-right">
+        <div class="text-content">
+          <h3>Building Strength, Building Code</h3>
+          <p>
+            “Just like training in the gym, I approach every project with consistency, focus, and a drive to improve. 
+            Growth — whether in fitness or development — is built one rep at a time.”
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="css-right">
-      <div class="image-container">
-        <img src="assets/after-effects (1).png" alt="" class="right-head-img autoRotateAnti">
-        <img src="assets/dogedit.jpg" alt="Project Work" class="main-img">
+
+      <!-- Second Row: Text left, image right -->
+      <div class="css-left">
+        <div class="text-content">
+          <h3>An Editor / Synced To The Beat</h3>
+          <p>
+            “Velocity isn’t just a trick — it’s storytelling through timing, pacing, and perfect transitions.”
+          </p>
+        </div>
       </div>
-    </div>
-    <!-- Third Row: image on left, Text on right -->
-     <div class="css-left">
-      
-      <div class="image-container">
-        <img src="assets/iconweb.png" alt="" class="head-img autoRotate">
-        <img src="assets/catWeb.jpg" alt="Profile Image" class="main-img">
+      <div class="css-right">
+        <div class="image-container">
+          <img src="assets/after-effects (1).png" alt="" class="right-head-img autoRotateAnti" />
+          <img src="assets/dogedit.jpg" alt="Project Work" class="main-img" />
+        </div>
       </div>
-    </div>
-    <div class="css-right">
-      <div class="text-content">
-        <h3>Evolving With Every Project</h3>
-        <p>“Web development is a journey, not a destination. Every project I create sharpens my skills and adds another layer to my growth as a developer.”</p>
+
+      <!-- Third Row: Image left, text right -->
+      <div class="css-left">
+        <div class="image-container">
+          <img src="assets/iconweb.png" alt="" class="head-img autoRotate" />
+          <img src="assets/catWeb.jpg" alt="Profile Image" class="main-img" />
+        </div>
+      </div>
+      <div class="css-right">
+        <div class="text-content">
+          <h3>Evolving With Every Project</h3>
+          <p>
+            “Web development is a journey, not a destination. Every project I create sharpens my skills 
+            and adds another layer to my growth as a developer.”
+          </p>
+        </div>
       </div>
     </div>
   </div>
+     <!-- Projects -->
+    
+  <h1 class="project-heading">My Recent Work</h1>
+  <p class="project-subheading">
+Here are a few past design projects I've worked on. Want to see more? Email me.</p>
+
+
+<div class="outer-bg">
+  <div class="main-container">
+    <div class="main-left">
+      <h2>
+        <span class="accent">Amazon Clone</span><br>
+      Responsive E-Commerce Website
+      </h2>
+      <p>
+A pixel-perfect clone of Amazon featuring responsive design, product listings, and modern navigation. Built with semantic HTML and stylish CSS for a smooth user experience.      </p>
+      <a href="#" class="learn-link">View project on GitHub →</a>
+      <div class="main-stats">
+        <div>
+          <span class="icon">☁️</span>
+          <strong>Technologies</strong>
+          <span class="stat-label">HTML, CSS, JS</span>
+        </div>
+        <div>
+          <span class="icon">⚡</span>
+          <strong>1 month</strong>
+          <span class="stat-label">build time</span>
+        </div>
+      </div>
+    </div>
+    <div class="main-right">
+      <!-- Top Card, sticking out upwards -->
+      <div class="floating-card card-top">
+        <div class="card-header">
+          <span class="card-badge" style="background:#f7f5f6;"><img src="./assets/social.png" alt="" class="project-img"></span>
+          Core-Features
+        </div>
+        <pre><code>“User authentication”
+   “Real-time product listings”
+   “Cart & checkout flow”
+   “Responsive design for all devices”
+   “Category navigation”
+   “Product search”
+   “Order history (mock)” </code></pre>
+      </div>
+      <!-- Animation between cards -->
+<svg class="transfer-svg" width="54" height="220" viewBox="0 0 54 220">
+  <line x1="27" y1="40" x2="27" y2="180" stroke="#b4b5ca" stroke-width="3" stroke-dasharray="6 8" />
+  <circle class="transfer-dot" r="8" cx="27" cy="40" fill="#a685fa" />
+</svg>
   
-    <div class="last">
-      <div class="social-grid">
-        <a href="#" class="card"><img src="assets\altzerra.png" alt="Logo" class="Mylogo"></a>
-        <a href="#" class="card logo-card"><img src="assets\linkedin.png" alt="" class="Logo"><h3>LinkedIn</h3><p>linkedin.com</p></a>
-        <a href="#" class="card logo-card"><img src="assets\discord-logo.png" alt="" class="Logo"><h3>Discord</h3><p>discordapp.com</p></a>
-        <a href="https://www.instagram.com/altzerra/?next=%2F" class="card logo-card"><img src="assets\instagram.png" alt="" class="Logo"><h3>@AltZerra</h3><button>Follow</button></a>
+      <!-- Bottom Card, sticking out downwards -->
+      <div class="floating-card card-bottom">
+        <div class="card-header">
+          <span class="card-badge" style="background:#fff; color:#222;">Snippet</span>
+          Project-Highlights
+        </div>
+        <pre><code>
+CSS3 (Flexbox, Grid)
+Vanilla JavaScript
+Responsive UI
+Figma (design)</code></pre>
       </div>
-      <section class="shorts">
-      <h2 class="heading ">A GymGuy</h2>
-     <div class="shorts-grid">
-      <div class="short-card"> <video src="assets\gym4.mp4" autoplay muted loop></video></div>
-      <div class="short-card"> <video src="assets\gym3.mp4" autoplay muted loop></video></div>
-      <div class="short-card"> <video src="assets\gym2.mp4" autoplay muted loop></video></div>
-      <div class="short-card"> <video src="assets\gym1.mp4" autoplay muted loop></video></div>
-     </div>
-     </section>
-      <section class="shorts">
-     <h2 class="heading">A Gamer</h2>
-     <div class="shorts-grid">
-      <div class="short-card"> <video src="assets\game1.mp4" autoplay muted loop></video></div>
-      <div class="short-card"> <video src="assets\game2.mp4" autoplay muted loop></video></div>
-      <div class="short-card"> <video src="assets\game3.mp4" autoplay muted loop></video></div>
-      <div class="short-card"> <video src="assets\game4.mp4" autoplay muted loop></video></div>
-     </div>
-     </section>
-     <section class="shorts">
-      <h2 class="heading">An editor</h2>
-      <div class="shorts-grid">
-      <div class="short-card"> <video src="assets\gym4.mp4" autoplay muted loop></video></div>
-      <div class="short-card"> <video src="assets\gym3.mp4" autoplay muted loop></video></div>
-      <div class="short-card"> <video src="assets\gym2.mp4" autoplay muted loop></video></div>
-      <div class="short-card"> <video src="assets\gym1.mp4" autoplay muted loop></video></div>
-      </div>
-     </section>
- 
-      </div>
-   </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  <!-- Footer -->
   <footer>
     <p>Ayushman Patel's Portfolio</p>
   </footer>
+
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
+
